@@ -1,4 +1,4 @@
-<div class="full-wrap">
+<div class="full-wrap" *ngIf="!searchBar else other">
     <div class="container">
             <div class="up-header"> 
                 <div class="left-side">
@@ -50,7 +50,7 @@
 
             <div class="search">
                 <form class="example" action="#">
-                  <input class="srch-inpts" type="text" placeholder="Search" name="search">
+                  <input class="srch-inpts" (click)="searchBarShow()"type="text" placeholder="Search" name="search">
                   <button class="srch-btn" type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
@@ -67,3 +67,8 @@
 </div>
 
 <app-footer></app-footer>
+
+
+<ng-template #other>
+  <app-search></app-search>
+</ng-template>

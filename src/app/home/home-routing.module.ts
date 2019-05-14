@@ -6,6 +6,7 @@ import { SocialLandingComponent } from './social-landing/social-landing.componen
 import { AdvertiseComponent } from './advertise/advertise.component';
 import { FreeListingComponent } from './free-listing/free-listing.component';
 import { SearchComponent } from './component/search/search.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  }
+  ,
+  {
+    path: 'notification',
+    component: NotificationComponent
   }
 ];
 

@@ -2,6 +2,9 @@
     position: relative;
     z-index: 3;
 }
+.ng-autocomplete {
+    width: 100%!important;
+}
 .hdrfirst {
     width: 100%;
     background: #fff;

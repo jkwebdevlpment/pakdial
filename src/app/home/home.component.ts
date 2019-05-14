@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   catData:any;
+  searchBar:boolean = false
   constructor(public dataService: DataService,
               private share : SharedDataServiceService,
               public router: Router) { }
@@ -29,5 +30,9 @@ export class HomeComponent implements OnInit {
 
   openNav(){
     this.router.navigateByUrl('sideMenu');
+  }
+
+  searchBarShow(){
+    this.searchBar =  true
   }
 }

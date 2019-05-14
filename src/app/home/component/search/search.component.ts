@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 // import { SharedataService } from '../sharedata.service';
 // import { AlertService } from 'ngx-alerts';
 import { Location } from '@angular/common';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -13,7 +14,9 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit {
   responses : any;
+  catData:any;
   user : any;
+  searchKey:string
   cities : any
   Visibility : boolean;
   Visible : boolean = true;
@@ -28,7 +31,7 @@ export class SearchComponent implements OnInit {
   public placeholder: string = 'Enter the Category Name';
   public keyword = 'name';
   public countriesTemplate = ['software Developing', 'software Testing', 'real estate', 'Hire Anything','Business 2 business','sports','Tv-Shows','Wedding','Jwellery','Loan and credi'];
-  constructor(private location: Location,private http: HttpClient ,private router: Router) { }
+  constructor(public dataService: DataService,private location: Location,private http: HttpClient ,private router: Router) { }
 
   ngOnInit() {
 
@@ -52,6 +55,13 @@ export class SearchComponent implements OnInit {
     cate = this.http.get('http://pakdial.com/api/Search/cities');
     cate.subscribe((d)=>this.cities=d);
     this.http.post('http://pakdial.com/api/Listing/ajax_search_keyword',{search_keyword : ''}).subscribe((d)=>console.log(d));
+    this.dataService.allCategoryList().subscribe(data=> {
+      this.catData = data;
+     })
+          // this.countriesTemplate.push()
+  
+  
+  
   } 
   ItemClicked(event , response)
   {
@@ -98,5 +108,16 @@ export class SearchComponent implements OnInit {
   }
   cancel(){
     this.location.back()
+  }
+
+  searchItem(i){
+    this.dataService.allCategoryList().subscribe(data=> {
+      this.catData = data;
+     })
+    debugger
+  
+  }
+  backArray(){
+    this.location.back();
   }
 }
