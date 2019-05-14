@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   {
       var inc = this.share.getPosition();
       this.share.setData(inc,response.category_id);
-      this.router.navigateByUrl('/state?='+catName);
+      this.router.navigateByUrl('/state'+'?cat='+response.category_id);
   }
 
   openNav(){

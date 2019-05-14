@@ -59,6 +59,9 @@
     left: -7px;
     background: url(https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot_072018/thdrbackicn_new.svg) no-repeat;
 }
+.fadeInUpmovie ul{
+    padding: 0px !important;
+}
 .hdrjdlogoWpr {
     display: table-cell;
     vertical-align: middle;

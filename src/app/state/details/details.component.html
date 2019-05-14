@@ -1,0 +1,166 @@
+<div class="full-wrap-details">
+    <div class="detail-slider">
+      <div class="slider-img" *ngIf = "responses.gallery[0]">
+        <img src="{{responses.gallery[0].file_url}}" class="img-fluid">
+      </div>
+    </div>
+  
+    <div class="name-prpty">
+      <div class="container">
+       <p>{{responses.listing.company_name}}
+         <span class="fa fa-heart" [class.red] = "isDisabled" (click)="saveItem($event)"></span>
+        </p>
+      </div>
+    </div>
+  
+    <div class="content-prpty">
+      <div class="container">
+        <div class="review-ttl">
+          <div class="media">
+            <div class="mr-3 review-prcnt">
+              <h3>{{responses.AVG_RATING}}</h3>
+            </div>
+            <div class="media-body body-cnt">
+              <h6 class="mt-0">Based on <span>{{responses.reviews.length}} reviews</span></h6>
+              <p>Be first among your friends to rate this</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="contact-sec">
+          <div class="container">
+            <ul>
+              <li><a href="tel:{{responses.list_phone[0].mobile}}"><i style="transform: rotate(90deg);"class="fas fa-phone"></i><br>Call</a></li>
+              <li><i class="fas fa-map-marker-alt"></i><br>Directions</li>
+              <li><a href="sms:+918114431733?body=Hi there!"><i class="far fa-envelope"></i><br>Message</a></li>
+              <li><i class="fas fa-share"></i><br>Share</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="best-deal" (click) = "bestdealclicked($event)">
+          <button class="bst-deal">Best Deal</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="overall-rev-section">
+      <div class="container">
+        <div class="left-rew">
+          <i class="far fa-star"></i>
+        </div>
+        <a routerLink="/review" routerLinkActive="active"> 
+        <div class="rev-text">Tap to Rate</div>
+        <div class="right-rew">
+          <!-- <span><bar-rating [max]="5" [(ngModel)]="credentials.rating_val" (leave)="ratechanged()"></bar-rating></span> -->
+        </div>
+        </a>
+      </div>
+    </div>
+    <div class="more-option">
+      <div class="container">
+        <p class="more-text">More Options</p>
+        <div class="img-section-more" *ngFor="let response of responses.gallery">
+            <img class="img-fluid" src="{{response.file_url}}">
+            <p>Preet Land Promoters</p>
+            <span>mohali</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="property-location-details">
+      <div class="container">
+        <ul>
+          <li><i class="far fa-clock"></i><span>Open Now </span>9.30 am - 6.30 pm </li>
+          <li><i class="fas fa-phone" *ngFor="let response of responses.list_phone">
+          {{response.mobile}}</i></li>
+          <li><i class="far fa-address-book"></i>scf-97,Near Indus Hospital,Mohali Chandigarh,Chandigarh(PH-3b2)</li>
+          <a routerLink="/report" routerLinkActive="active">
+          <li><i class="fas fa-pencil-alt"></i>Edit this listing</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  
+  
+    <div class="upload-image-section">
+      <div class="container">
+        <div class="uploaded-imgs" *ngFor="let response of responses.gallery">
+          <img class="img-fluid img-rounded" src="{{response.file_url}}">
+        </div>
+        <div class="up-load-btn">
+         <label class="btn-bs-file">
+            <i class="fas fa-cloud-upload-alt"></i> Add Photo
+            <input type="file"/>
+          </label>
+        </div>
+      </div>
+    </div>
+  
+    <div class="rating-section">
+      <div class="container">
+        <p class="more-text-rev">Review & Ratings</p>
+        <div class="rating-text">
+          <div class="count-rev">
+            <span>{{responses.AVG_RATING}}</span>
+          </div>
+          <div class="total-text-rev">
+            <p>Pd rating index based on <span>2 reviews</span> across the web</p>
+          </div>
+        </div>
+        <div class="first-rev-prsn">
+          <a routerLink="/review" routerLinkActive="active"><p *ngIf="Visibility">Be first among your friends to rate this</p></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="all-rating">
+      <div class="container">
+        <div class="uppr-tabs">
+          <ul>
+            <li>Popular</li>
+           </ul>
+        </div>
+        <div class="cmnt-section-details" *ngFor="let response of responses.reviews">
+          <div class="comments-sec">
+            <div class="media">
+              <img class="mr-3 img-fluid" src="hhtp://pakdial.com/{{response.image}}">
+              <div class="media-body">
+              <p class="cmnter-name">{{response.user_info.user_firstname}}</p>
+              <div class="cmnter-review">
+                <span><bar-rating rate="{{response.rating}}" [max]="5" [readOnly]="true"></bar-rating></span>
+                <span class="cmnter-rev-count">{{response.rate_desc}}</span>
+              </div>            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="listed-in">
+      <div class="container">
+        <p class="more-text-rev">Also Listed In</p>
+        <div class="also-listed-in">
+          <ul>
+            <li *ngFor="let response of responses.cat_names" (click) = "alsoListedclicked($event,response.category_id)">{{response.category_name}}</li>
+            <li>...more</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="report-issue">
+      <div class="container">
+        <div class="report-sec">
+          <a routerLink="/report" routerLinkActive="active">
+            <p class="more-text-rev">Report An Issue <i class="fas fa-angle-right"></i></p>
+          </a>
+        </div>     
+      </div>
+    </div>
+  
+  
+  </div>
+  
