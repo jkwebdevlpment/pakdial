@@ -5,6 +5,7 @@ import { SideMenuComponent } from './component/side-menu/side-menu.component';
 import { SocialLandingComponent } from './social-landing/social-landing.component';
 import { AdvertiseComponent } from './advertise/advertise.component';
 import { FreeListingComponent } from './free-listing/free-listing.component';
+import { SearchComponent } from './component/search/search.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,11 @@ const routes: Routes = [
     path: 'free-listing',
     component: FreeListingComponent
   }
-
+  ,
+  {
+    path: 'search',
+    component: SearchComponent
+  }
 ];
 
 @NgModule({
