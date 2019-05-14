@@ -1,0 +1,8 @@
+.menuwrpr, .prflsctn {
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+.menuwrpr {
+    padding: 0 0 0 30px;
+}
