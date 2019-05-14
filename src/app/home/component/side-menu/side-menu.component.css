@@ -135,6 +135,9 @@
 .fadeInUpmovie {
     animation-name: fadeInUpmovie;
 }
+.fadeInUpmovie ul{
+    padding: 0px !important;
+}
 .animated {
     animation-duration: 0.7s;
     animation-fill-mode: both;
