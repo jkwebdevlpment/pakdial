@@ -31,7 +31,7 @@
                         </ul>
                       </div>
                     </div>
-                    <span style="font-size:30px;cursor:pointer;color:#7e7e7e" onclick="openNav()">&#9776;</span>
+                    <span style="font-size:30px;cursor:pointer;color:#7e7e7e" (click)="openNav()">&#9776;</span>
                      <!-- End sidebar nav -->
                 </div>
                 <div class="center-location">
@@ -57,7 +57,7 @@
 
             <div class="all-category">
                 <ul class="ul-category pointer">                  
-                  <li class="inner-section " *ngFor="let response of catData" (click)="ItemClicked($event,response)">
+                  <li class="inner-section " *ngFor="let response of catData" (click)="ItemClicked($event,response,response.category_name)">
                     <img src="http://pakdial.com/{{response.icon_image}}" class="img-fluid">
                     <p>{{response.category_name}}</p>
                 </li>                   
@@ -66,14 +66,4 @@
     </div>
 </div>
 
-<!-- Start footer -->
-<div class="full-footer">
-  <ul class="footer-ul">
-    <li><a href="#" class="active"><i class="fas fa-list"></i><br>Search</a></li>
-    <li><a href="#"><i class="fas fa-user"></i><br>Social</a></li>
-    <li><a href="#"><i class="fas fa-broadcast-tower"></i><br>Advertise</a></li>
-    <li><a href="#"><i class="fas fa-list"></i><br>Free Listing</a></li>
-    <li><a href="#"><i class="fas fa-user"></i><br>Social</a></li>
-  </ul>
-</div>
-<!-- End footer -->
+<app-footer></app-footer>

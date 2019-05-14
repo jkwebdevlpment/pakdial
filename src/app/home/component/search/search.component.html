@@ -1,0 +1,24 @@
+<p (click)="cancel()"> back </p>
+<div class="search" (click)="openDiv()">
+    <ng-autocomplete #ngAutoCompleteStatic
+    class = "srch-inpts"
+    [data]="countriesTemplate"
+    name="name"
+    [initialValue]=""
+    [placeHolder]="placeholder"
+    [searchKeyword]="keyword"
+    historyIdentifier="countriesTemplateList"
+    [historyHeading]="historyHeading"
+    historyListMaxNumber="3"
+    notFoundText="Not found"
+    [itemTemplate]="itemTemplateStatic"
+    [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplateStatic let-item>
+      <a [innerHTML]="item"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
